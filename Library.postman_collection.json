@@ -1,0 +1,392 @@
+{
+	"info": {
+		"_postman_id": "f6240fa5-506e-4997-8cf5-5984f6a4aade",
+		"name": "Library",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "create admin user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@gmail.com\",\n    \"password\": \"1234\",\n    \"role\": \"role_admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/auth/v1/createAdmin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"auth",
+								"v1",
+								"createAdmin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login admin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@gmail.com\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/auth/v1/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"auth",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create rental agent user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test2@gmail.com\",\n    \"password\": \"1234\",\n    \"role\": \"role_rental_agent\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/auth/v1/createRentalAgent",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"auth",
+								"v1",
+								"createRentalAgent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login rental agent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test2@gmail.com\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/auth/v1/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"auth",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsImlkIjoiNjUwZWU1YmItOWI0MS00ODg4LThhOTUtZTMyMTAzZGIwNDM5Iiwic3ViIjoiNjUwZWU1YmItOWI0MS00ODg4LThhOTUtZTMyMTAzZGIwNDM5IiwiaWF0IjoxNzA2NjM5OTMyLCJleHAiOjE3MDY3MjYzMzJ9.i2naXVMZ81akkKt56VaY0s6EC_pKtNvviflOo0OqRWhCKCWHoXwhjf5GraZEDE8UAYwJPOaWj0H1tm5SKOl_NQ",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "Rental",
+					"item": [
+						{
+							"name": "create rental",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"agentUUID\": \"650ee5bb-9b41-4888-8a95-e32103db0439\",\n    \"rentalDate\": \"2024-01-27\",\n    \"renter\": {\n        \"name\": \"John Doe\",\n        \"phone\": \"6555555555\",\n        \"email\": \"test3@gmail.com\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8090/book/api/v1/books/bookCopies/2/rentals",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"book",
+										"api",
+										"v1",
+										"books",
+										"bookCopies",
+										"2",
+										"rentals"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Overdue rentals",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8090/book/api/v1/books/bookCopies/rentals/overdue",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"book",
+										"api",
+										"v1",
+										"books",
+										"bookCopies",
+										"rentals",
+										"overdue"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "return rental",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8090/book/api/v1/books/bookCopies/rentals/1/return",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8090",
+									"path": [
+										"book",
+										"api",
+										"v1",
+										"books",
+										"bookCopies",
+										"rentals",
+										"1",
+										"return"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "create book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"lord of the rings\",\n    \"isbn\": \"9788845292613\",\n    \"author\": {\n        \"firstName\": \"Tolkien\",\n        \"lastName\": \"J. R. R.\",\n        \"email\": \"tolkjrr.lotr@gmail.com\"\n    },\n    \"pubDate\": \"2018-12-02\",\n    \"edition\": \"first\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/book/api/v1/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"book",
+								"api",
+								"v1",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/book/api/v1/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"book",
+								"api",
+								"v1",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get book by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/book/api/v1/books/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"book",
+								"api",
+								"v1",
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create book copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/book/api/v1/books/1/bookCopies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"book",
+								"api",
+								"v1",
+								"books",
+								"1",
+								"bookCopies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsImlkIjoiNjUwZWU1YmItOWI0MS00ODg4LThhOTUtZTMyMTAzZGIwNDM5Iiwic3ViIjoiNjUwZWU1YmItOWI0MS00ODg4LThhOTUtZTMyMTAzZGIwNDM5IiwiaWF0IjoxNzA3MjczMjA3LCJleHAiOjE3MDczNTk2MDd9.-kdmeSY5i-BVSSMJjOMfDMrapFumkMTLtaM-BvBgI12sJ-tG1gGKHDqrGcCiWpJlC6VGwioIQjEzZq7BbLoT1g",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
