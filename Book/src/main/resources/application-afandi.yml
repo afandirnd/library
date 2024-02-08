@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/book
+    driver-class-name: org.postgresql.Driver
+    username: afandi
+    password: mySecuredP@ssword
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: update
